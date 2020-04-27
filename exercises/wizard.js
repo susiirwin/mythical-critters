@@ -1,7 +1,7 @@
 class Wizard {
-  constructor(object) {
+  constructor(object, bearded = true) {
     this.name = object.name;
-    this.bearded = true;
+    this.bearded = object.bearded;
   }
 }
 

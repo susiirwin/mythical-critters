@@ -22,7 +22,7 @@ describe('Wizard', function() {
     assert.equal(wizard.bearded, true);
   });
 
-  it.skip('should not always be bearded', function() {
+  it('should not always be bearded', function() {
     var wizard = new Wizard({name: 'Jhun', bearded: false});
     assert.equal(wizard.bearded, false)
   });
