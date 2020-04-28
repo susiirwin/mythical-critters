@@ -71,20 +71,44 @@ describe('Werewolf', function() {
     assert.equal(werewolf.hungry, true);
   });
 
-  it.skip('should be able to eat(victim) once hungry', function() {
-    // your code here
+  it('should be able to eat(victim) once hungry', function() {
+    var werewolf = new Werewolf('Lousia', 'Gusto');
+    var victim = new Victim('Fred');
+    werewolf.change();
+    assert.equal(werewolf.hungry, true);
+    werewolf.eat(victim);
+    assert.equal(werewolf.hungry, false);
   });
 
-  it.skip('should not be hungry after changing back to human form', function() {
-    // your code here
+  it('should not be hungry after changing back to human form', function() {
+    var werewolf = new Werewolf('Lousia', 'Gusto');
+    werewolf.change();
+    assert.equal(werewolf.wolf, true);
+    assert.equal(werewolf.human, false);
+    assert.equal(werewolf.hungry, true);
+    werewolf.change();
+    assert.equal(werewolf.wolf, false);
+    assert.equal(werewolf.human, true);
+    assert.equal(werewolf.hungry, false);
+
   });
 
-  it.skip('should change back to human form after eating', function() {
-    // your code here
+  it('should change back to human form after eating', function() {
+    var werewolf = new Werewolf('Lousia', 'Gusto');
+    var victim = new Victim('Fred');
+    werewolf.change();
+    werewolf.eat(victim);
+    assert.equal(werewolf.human, true);
   });
 
-  it.skip('should not be able to consume victim in human form', function() {
-    // your code here
+  it('should not be able to consume victim in human form', function() {
+    var werewolf = new Werewolf('Lousia', 'Gusto');
+    var victim = new Victim('Fred');
+    werewolf.change();
+    assert.equal(werewolf.human, false);
+    werewolf.change();
+    assert.equal(werewolf.human, true);
+    assert.equal(werewolf.eat(victim), "You are a human");
   });
 });
 

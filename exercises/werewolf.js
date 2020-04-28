@@ -15,11 +15,20 @@ class Werewolf {
     } else {
       this.human = true;
       this.wolf = false;
+      this.hungry = false;
     }
   }
 
   eat(victim) {
-    victim.alive = false;
+    if(this.human == true){
+      return "You are a human";
+    } else {
+      victim.alive = false;
+      if(this.hungry == true && victim.alive == false){
+        this.hungry = false;
+        this.human = true;
+      }
+    }
   }
 
 }
